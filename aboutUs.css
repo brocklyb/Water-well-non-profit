@@ -1,0 +1,134 @@
+#banner1_container, #banner2_container, #banner3_container, #banner4_container, #banner5_container{
+    position: relative;
+    height: 35vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#banner1_img, #banner2_img, #banner3_img, #banner4_img, #banner5_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+#aboutUs_container, #problem_container{
+    text-align: center;
+    max-width: 100%;
+}
+
+#aboutus_sub_container, #problem{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 10% 10% 10% 10%; 
+}
+
+#testimony_container{
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 15%;
+}
+
+#testimony_grid{
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 1;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    
+}
+
+#grid_item_img{
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    border-radius: 50%;
+    max-width: 80%;
+    min-width: 75%;
+}
+
+#grid_item_text{
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+}
+
+#join_container{
+    background-color: rgb(198, 198, 198);
+    text-align: center;
+    padding: 3%;
+}
+
+#impact_container{
+    padding: 10%;
+}
+
+#impact_content{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+#impact_text_grid_container, #real_motivation_grid_container{
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 1;
+    padding: 3% 3% 3% 3%;
+}
+
+#impact_text1, #real_motivation_text1{
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#impact_text2, #real_motivation_text1{
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#meetus_container, #real_motivation_container{
+    padding: 10%;
+}
+
+#meetus_content, #meetus_container, #real_motivation{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+#meetus_grid{
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 1;
+}
+
+#person1{
+    justify-content: center;
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+#person2{
+    justify-content: center;
+    display: grid;
+    grid-row: 1;
+    grid-column: 2;
+}
+
+#person3{
+    justify-content: center;
+    display: grid;
+    grid-row: 1;
+    grid-column: 3;
+}
