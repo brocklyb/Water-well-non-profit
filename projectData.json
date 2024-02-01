@@ -1,0 +1,38 @@
+[
+  {
+    "projectID":0,
+    "projectName": "Kitile Community",
+    "location": "Sierra Leone",
+    "imageURL": "Image URL",
+    "moneyGoal": 69420,
+    "moneyCurrent": 420,
+    "description": "Description blah blah"
+  },
+  {
+    "projectID":1,
+    "projectName": "Titan Community",
+    "location": "Kenya",
+    "imageURL": "Image URL",
+    "moneyGoal": 123,
+    "moneyCurrent": 456,
+    "description": "Description blah blah"    
+  },
+  {
+    "projectID":2,
+    "projectName": "Reddit Community",
+    "location": "Ghana",
+    "imageURL": "Image URL",
+    "moneyGoal": 666,
+    "moneyCurrent": 420,
+    "description": "Description blah blah"    
+  },
+  {
+    "projectID":3,
+    "projectName": "Kisirani Community",
+    "location": "Uganda",
+    "imageURL": "Image URL",
+    "moneyGoal": 69420,
+    "moneyCurrent": 420,
+    "description": "Description blah blah"    
+  }
+]
