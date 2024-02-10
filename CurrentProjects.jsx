@@ -11,6 +11,8 @@ function CurrentProjects() {
     setFilteredData(projectData)
   }, [])
 
+
+
   const [projectLocation, setprojectLocation] = useState("")
   const [projectCompletionDate, setprojectCompletionDate] = useState("")
   const [isProjectCompleted, setIsProjectCompleted] = useState(false)
@@ -46,6 +48,7 @@ function CurrentProjects() {
           const allFilters = [projectLocation, projectCompletionDate, isProjectCompleted]
           console.log(allFilters)
           filterData()
+          countData()
         };
 
         const filterData = () => {
@@ -66,23 +69,15 @@ function CurrentProjects() {
             const filterMe2 = projectData.filter(obj => obj.location === projectLocation);
             setFilteredData(filterMe2); 
           }
+          setProjectCounter(filteredData.length)
           
-          countData()
-
-
-          //NO completion date and sort = TRUE
-          //if (projectCompletionDate == "" && isProjectCompleted == true){
-            //const filteredData2 = projectData.filter(obj => obj.location === projectLocation && obj.isCompleted === isProjectCompleted);
-            //setFilteredData(filteredData2);  
-            //console.log('NO DATE sort TRUE => Filtered data below')
-            //console.log(filteredData2)
-          //}
+          
         }
       
         return (
-          <div className="form-container">
-            <h1>Current Projects</h1>
-
+          <div className="form-container">  
+          <div id='userForm'>
+           <h1>Current Projects</h1>
             <form onSubmit={handleSubmit}>
               <label htmlFor="location">Location:</label>
               <select id="location" name="location" value={projectLocation} onChange={handleLocationChange}>
@@ -123,7 +118,7 @@ function CurrentProjects() {
             <div>
               <h2>Project Count = {projectCounter}</h2>
             </div>
-
+          </div>
             <hr></hr>
 
           <div id='projectContainer'>
