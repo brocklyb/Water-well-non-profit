@@ -7,88 +7,59 @@ import checkMark from './images/icons/check-mark.svg'
 import {projectData} from './data/Data'
 
 function CurrentProjects() {
+
+
+  const [ selectedLocations, setSelectedLocations ] = useState([])
+  const [ allFilters, setAllFilters ] = useState({
+                                      sortByCompleted:false,
+                                      projectCounter:0,
+                                      filteredProjects: []
+                                                })
+
   useEffect(() => {
-    handleShowAll()
+    console.log("FIRST RENDER")
   }, [])
 
+  useEffect(() => {
+    const results = filterProjectsByLocation()
+    updateFiltersState(results)
+  }, [selectedLocations])
+
+  const handleLocationButton = (e) => {
+    const prjLocation = e.target.value
+    if(selectedLocations.includes(prjLocation)){
+    }else{
+      setSelectedLocations([...selectedLocations,prjLocation]) 
+    }
+    const filteredResults = filterProjectsByLocation()
+    updateFiltersState(filteredResults)
+  }
+
+  const filterProjectsByLocation = () => {
+    const filteredProjects = []
+    for(let i=0; i<projectData.length; i++){
+      let loc = projectData[i].location
+      if(selectedLocations.includes(loc)){
+        filteredProjects.push(projectData[i])
+      }
+    }
+    return filteredProjects
+  }
+ 
+
+  const updateFiltersState = (projects) => {
+    setAllFilters({
+      sortByCompleted:allFilters.sortByCompleted,
+      projectCounter:allFilters.projectCounter,
+      filteredProjects: projects
+    })
+  }
+  
+  const resetFilters = () => {
+    allFilters.filteredProjects = []
+  }
 
 
-  const [isProjectCompleted, setIsProjectCompleted] = useState(false)
-  const [filteredData, setFilteredData] = useState([])
-  const [projectCounter, setProjectCounter] = useState(0)
-  const [locationList,setLocationList] = useState([])
-
-        const countData = () => {
-          const count = filteredData.length
-          setProjectCounter(count)
-        }
-
-        const handleIsProjectCompleted = (event) => {
-          setIsProjectCompleted(!isProjectCompleted)
-        }
-      
-
-        /* 
-        const handleFilterData = () => {
-          const data = []
-          for(let i=0; i<projectData.length; i++){
-            //user wants to sort by ONLY completed projects 
-            if(isProjectCompleted){
-              if(projectData[i].location === projectLocation && projectData[i].isCompleted == isProjectCompleted){
-                data.push(projectData[i])
-              }
-            //if user does NOT want to sort by completion
-            }else if(!isProjectCompleted){
-              if(projectData[i].location === projectLocation){
-                data.push(projectData[i])
-              }
-            }
-          }
-          setFilteredData(data)
-          console.log(data)
-        }
-*/
-
-        const handleSetFilteredData = (data) =>{
-          setFilteredData(data)
-        }
-
-
-        const handleFilterData = () => {
-          const testSelectedData = []
-          for(let i=0; i<projectData.length; i++){
-            const Location = projectData[i].location 
-
-            if(locationList.includes(Location)){
-              //console.log(projectData[i])
-              testSelectedData.push(projectData[i])
-            }
-          }
-          handleSetFilteredData(testSelectedData)
-          console.log(filteredData)
-          countData()
-        }
-
-        let previousLocationClicked = ""
-        const handleLocationButton = (e) => {
-          const prjLocation = e.target.value
-          previousLocationClicked = prjLocation
-
-          if(locationList.includes(prjLocation)){
-          }else{
-            setLocationList([...locationList, prjLocation])
-          }
-          handleFilterData()
-        }
-
-        const handleShowAll = (e) => {
-          setFilteredData(projectData)
-        }
-
-        const handleReset = () => {
-          setLocationList([])
-          handleShowAll()
-        }
 
         return (
           <div className="form-container">  
@@ -99,36 +70,34 @@ function CurrentProjects() {
               <input
                 type='checkbox'
                 id='sortCompleted'
-                onChange={handleIsProjectCompleted}
               ></input>
       
               <br />
       
               <div id='test-buttons'>
-                <button onClick={handleShowAll}>Show All Projects</button>
                 <button value="Ghana" onClick={handleLocationButton}>Ghana</button>
                 <button value="Kenya" onClick={handleLocationButton}>Kenya</button>
                 <button value="Sierra Leone" onClick={handleLocationButton}>Sierra Leone</button>
                 <button value="Uganda" onClick={handleLocationButton}>Uganda</button>
-                <button onClick={handleReset}>RESET</button>
+                <button value='' onClick={resetFilters}>Reset</button>
               </div>
-              
+ 
 
               <div>
-                <h1>{locationList}</h1>
+                <h1>{allFilters.locations}</h1>
               </div>
 
             <div>
-              <h2>Project Count = {projectCounter}</h2>
+              <h2>Project Count = {allFilters.projectCounter}</h2>
             </div>
           </div>
             <hr></hr>
 
           <div id='projectContainer'>
             <div id='projectGrid'>
-              {filteredData.map((item,position) => (
+              {allFilters.filteredProjects.map((item,position) => (
                 <div className='projectCard'>
-                <div id={position}>
+                <div key={position} id={position}>
                   <img src={item.image} alt='Failed to load'></img>
                   <h1>{item.projectName}</h1>
                   <h4>{item.location}</h4>
