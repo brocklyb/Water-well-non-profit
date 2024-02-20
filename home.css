@@ -22,6 +22,7 @@
 }
 
 
+
 #section2_grid{
     display: grid;
     grid-template-columns: 2;
@@ -37,10 +38,10 @@
     grid-column: 1;
 }
 
-
-.test{
-
-    
+#section2_container{
+    align-items: center;
+    padding-left: 20%; 
+    padding-top: 100px;   
 }
 
 #section2-item2-container{
@@ -52,7 +53,6 @@
     align-items: center;
     justify-content: center;
     align-content: center;
-    
 }
 
 #section2-item3-container{
@@ -61,7 +61,6 @@
     grid-column: 1;
     text-align: center;
     max-width: 50%;
-
 }
 
 #section2-item4-container{
@@ -88,3 +87,55 @@
     padding-left: 200px;
 }
 
+#projects{
+    display: flex;
+    overflow:scroll;
+    padding-bottom: 50px;
+}
+
+.each-prj-card{
+    display: grid;
+    height: 400px;
+    min-width: 260px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    overflow: hidden;
+    margin: 20px 20px 20px 20px;
+    text-align: center;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#item1{
+    width: 200px;
+
+}
+
+#google-api{
+    height: 400px;
+    width: 100%;
+    background-color: lightgrey;
+    padding-top: 100px;
+    text-align: center;
+}
+
+#newsletter{
+    text-align: center;
+    padding: 200px 100px 50px 100px;
+}
+
+#cur-prjs{
+    text-align: center;
+    padding-top: 100px;
+}
+
+
+
+
+  
