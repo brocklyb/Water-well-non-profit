@@ -6,98 +6,148 @@ import checkMark from './images/icons/check-mark.svg'
 
 import {projectData} from './data/Data'
 
+import Footer from './Footer'
+
 function CurrentProjects() {
-
-
-  const [ selectedLocations, setSelectedLocations ] = useState([])
-  const [ allFilters, setAllFilters ] = useState({
-                                      sortByCompleted:false,
-                                      projectCounter:0,
-                                      filteredProjects: []
-                                                })
+  const [ projectCount, setProjectCount ] = useState(0)
+  const [ selectedProjectLocation, setSelectedProjectLocation ] = useState("all")
+  const [ isSortData, setIsSortData ] = useState(false)
+  const [ filteredProjectData, setFilteredProjectData ] = useState([])
 
   useEffect(() => {
-    console.log("FIRST RENDER")
-  }, [])
+    handleSetFilteredProjectData()
+    const countFilteredProjects = countProjects()
+    setProjectCount(countFilteredProjects)
+  },[])
 
   useEffect(() => {
-    const results = filterProjectsByLocation()
-    updateFiltersState(results)
-  }, [selectedLocations])
+    const countFilteredProjects = countProjects()
+    setProjectCount(countFilteredProjects)
+  },[filteredProjectData])
 
-  const handleLocationButton = (e) => {
-    const prjLocation = e.target.value
-    if(selectedLocations.includes(prjLocation)){
-    }else{
-      setSelectedLocations([...selectedLocations,prjLocation]) 
-    }
-    const filteredResults = filterProjectsByLocation()
-    updateFiltersState(filteredResults)
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    handleSetFilteredProjectData()
   }
 
-  const filterProjectsByLocation = () => {
-    const filteredProjects = []
-    for(let i=0; i<projectData.length; i++){
-      let loc = projectData[i].location
-      if(selectedLocations.includes(loc)){
-        filteredProjects.push(projectData[i])
+  const handleSetFilteredProjectData = () =>{
+    if(selectedProjectLocation == "all"){
+      const allProjects = filterAllProjects()
+      setFilteredProjectData(allProjects)
+    }else{
+      const filteredProjects = filterProjects()
+      setFilteredProjectData(filteredProjects)
+    }
+  }
+
+  const handleLocationSelect = (e) =>{
+    setSelectedProjectLocation(e.target.value)
+  }
+
+  const handleIsSortData = (e) =>{
+    setIsSortData(!isSortData)
+  }
+
+  const countProjects = () =>{
+    return filteredProjectData.length
+  }
+
+  const filterAllProjects = () =>{
+    const completedProjects = []
+    const incompletedProjects = []
+    if(isSortData == false){
+      for(let i=0; i<projectData.length; i++){
+        let isProjectComplete = projectData[i].isCompleted
+        if(!isProjectComplete){
+          incompletedProjects.push(projectData[i])
+        }if(isProjectComplete){
+          completedProjects.push(projectData[i])
+        }
+      }
+      return incompletedProjects.concat(completedProjects)
+
+    }else{
+      if(isSortData == true){
+        for(let i=0; i<projectData.length; i++){
+          let isProjectComplete = projectData[i].isCompleted
+          if(isProjectComplete){
+            completedProjects.push(projectData[i])
+          }if(!isProjectComplete){
+            incompletedProjects.push(projectData[i])
+          }
+        }
+        return completedProjects.concat(incompletedProjects)
       }
     }
-    return filteredProjects
-  }
- 
-
-  const updateFiltersState = (projects) => {
-    setAllFilters({
-      sortByCompleted:allFilters.sortByCompleted,
-      projectCounter:allFilters.projectCounter,
-      filteredProjects: projects
-    })
-  }
-  
-  const resetFilters = () => {
-    allFilters.filteredProjects = []
   }
 
+  const filterProjects = () =>{
+    const completedProjects = []
+    const incompletedProjects = []
+    if(isSortData == false){
+      for(let i=0; i<projectData.length; i++){
+        let projectLocation = projectData[i].location
+        let isProjectComplete = projectData[i].isCompleted
+        if(!isProjectComplete & selectedProjectLocation.includes(projectLocation)){
+          incompletedProjects.push(projectData[i])
+        }if(isProjectComplete & selectedProjectLocation.includes(projectLocation)){
+          completedProjects.push(projectData[i])
+        }
+      }
+      return incompletedProjects.concat(completedProjects)
 
+    }else{
+      if(isSortData == true){
+        for(let i=0; i<projectData.length; i++){
+          let projectLocation = projectData[i].location
+          let isProjectComplete = projectData[i].isCompleted
+          if(isProjectComplete & selectedProjectLocation.includes(projectLocation)){
+            completedProjects.push(projectData[i])
+          }if(!isProjectComplete & selectedProjectLocation.includes(projectLocation)){
+            incompletedProjects.push(projectData[i])
+          }
+        }
+        return completedProjects.concat(incompletedProjects)
+      }
+    }
+  }
 
         return (
           <div className="form-container">  
           <div id='userForm'>
            <h1>Current Projects</h1>
 
-              <label>Sort by completed status:</label>  
-              <input
-                type='checkbox'
-                id='sortCompleted'
-              ></input>
-      
-              <br />
-      
-              <div id='test-buttons'>
-                <button value="Ghana" onClick={handleLocationButton}>Ghana</button>
-                <button value="Kenya" onClick={handleLocationButton}>Kenya</button>
-                <button value="Sierra Leone" onClick={handleLocationButton}>Sierra Leone</button>
-                <button value="Uganda" onClick={handleLocationButton}>Uganda</button>
-                <button value='' onClick={resetFilters}>Reset</button>
+              <div id='user-filters'>
+                <form onSubmit={handleSubmit}>
+                  <label>Choose an location:</label>
+                  <select id="options" name="options" onChange={handleLocationSelect}>
+                    <option value="all">All Projects</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Sierra Leone">Sierra Leone</option>
+                    <option value="Uganda">Uganda</option>
+                  </select>
+                  <label id='sortByComplete'>Sort by completed?</label>
+                  <input id='sss' onChange={handleIsSortData} type='checkbox'/>
+                  <input  type='submit'/>
+                </form>
               </div>
- 
+              
 
               <div>
-                <h1>{allFilters.locations}</h1>
+                <h2>Project Count = {projectCount}</h2>
               </div>
 
-            <div>
-              <h2>Project Count = {allFilters.projectCounter}</h2>
-            </div>
+              
           </div>
-            <hr></hr>
+
+       
 
           <div id='projectContainer'>
             <div id='projectGrid'>
-              {allFilters.filteredProjects.map((item,position) => (
-                <div className='projectCard'>
-                <div key={position} id={position}>
+              {filteredProjectData.map((item,position) => (
+                <div key={position} className='projectCard'>
+                <div>
                   <img src={item.image} alt='Failed to load'></img>
                   <h1>{item.projectName}</h1>
                   <h4>{item.location}</h4>
@@ -113,10 +163,8 @@ function CurrentProjects() {
                     <div>
                       <p>Goal: ${item.moneyGoal}</p> 
                       <p>Current: ${item.moneyCurrent}</p>
-                    </div>
-                    
+                    </div>    
                   )}
-
                   <a href=''>Learn More</a>
                 </div>
               </div> 

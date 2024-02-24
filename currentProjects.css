@@ -1,5 +1,6 @@
 .form-container {
   text-align: center;
+  
 }
 
 select, input[type="range"], input[type="date"] {
@@ -9,7 +10,6 @@ select, input[type="range"], input[type="date"] {
 form label{
   padding-left: 50px;
 }
-
 
 
 #projectContainer{
@@ -35,4 +35,28 @@ form label{
 
 #completion{
   color: green;
+}
+
+#userForm{
+  background-color: rgb(207, 207, 207)
+}
+
+.clicked {
+  background-color: #0073ff; 
+}
+
+#filter-buttons{
+  font-size: x-large;
+}
+
+#filter-buttons button{
+  margin-top: 20px;
+}
+
+#sortByComplete{
+  margin-right: 15px;
+}
+
+#sss{
+  margin-right: 20px;
 }
