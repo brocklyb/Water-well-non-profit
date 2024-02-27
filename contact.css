@@ -44,3 +44,23 @@ padding-top: 5%;
 #customer-service{
 height: 240px
 }
+
+.input-fields{
+    text-align: center;
+}
+
+#submit-button {
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+}
+  
+  #submit-button:hover {
+    background-color: #0056b3; 
+  }

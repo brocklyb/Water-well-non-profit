@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 import './styles/currentProjects.css'
 
 import checkMark from './images/icons/check-mark.svg'
 
 import {projectData} from './data/Data'
 
-import Footer from './Footer'
 
 function CurrentProjects() {
   const [ projectCount, setProjectCount ] = useState(0)
@@ -31,7 +30,7 @@ function CurrentProjects() {
   }
 
   const handleSetFilteredProjectData = () =>{
-    if(selectedProjectLocation == "all"){
+    if(selectedProjectLocation === "all"){
       const allProjects = filterAllProjects()
       setFilteredProjectData(allProjects)
     }else{
@@ -55,7 +54,7 @@ function CurrentProjects() {
   const filterAllProjects = () =>{
     const completedProjects = []
     const incompletedProjects = []
-    if(isSortData == false){
+    if(isSortData === false){
       for(let i=0; i<projectData.length; i++){
         let isProjectComplete = projectData[i].isCompleted
         if(!isProjectComplete){
@@ -67,7 +66,7 @@ function CurrentProjects() {
       return incompletedProjects.concat(completedProjects)
 
     }else{
-      if(isSortData == true){
+      if(isSortData === true){
         for(let i=0; i<projectData.length; i++){
           let isProjectComplete = projectData[i].isCompleted
           if(isProjectComplete){
@@ -84,7 +83,7 @@ function CurrentProjects() {
   const filterProjects = () =>{
     const completedProjects = []
     const incompletedProjects = []
-    if(isSortData == false){
+    if(isSortData === false){
       for(let i=0; i<projectData.length; i++){
         let projectLocation = projectData[i].location
         let isProjectComplete = projectData[i].isCompleted
@@ -97,7 +96,7 @@ function CurrentProjects() {
       return incompletedProjects.concat(completedProjects)
 
     }else{
-      if(isSortData == true){
+      if(isSortData === true){
         for(let i=0; i<projectData.length; i++){
           let projectLocation = projectData[i].location
           let isProjectComplete = projectData[i].isCompleted
@@ -133,15 +132,10 @@ function CurrentProjects() {
                 </form>
               </div>
               
-
               <div>
                 <h2>Project Count = {projectCount}</h2>
               </div>
-
-              
           </div>
-
-       
 
           <div id='projectContainer'>
             <div id='projectGrid'>
@@ -157,7 +151,7 @@ function CurrentProjects() {
                     <div id='isCompleted'>
                       <p id='completion'><strong>Completed</strong></p>
                       <p id='completion'>{item.completionYear}</p>
-                      <img id='checkMark' src={checkMark}></img>
+                      <img id='checkMark' src={checkMark} alt='Failed to load'></img>
                     </div>
                   ) : (
                     <div>
@@ -165,14 +159,16 @@ function CurrentProjects() {
                       <p>Current: ${item.moneyCurrent}</p>
                     </div>    
                   )}
-                  <a href=''>Learn More</a>
+                  <div id='learnMore'>
+                    <p>{item.projectID}</p>
+                    <Link to={`/projectInformation/${item.projectID}`}>Learn More</Link>
+                  </div>
+                  
                 </div>
               </div> 
               ))}
             </div>
           </div>
-      
-        
     </div>
   );
 }

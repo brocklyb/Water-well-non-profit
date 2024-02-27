@@ -1,8 +1,7 @@
 #footer_container{
     background-color: rgb(43, 136, 167);
     padding-top: 3%;
-    
-    
+  
 }
 
 #footer_container_grid{
@@ -10,6 +9,7 @@
     grid-template-columns: 3;
     grid-row: 1;
     text-align: center;
+    height: 400px;
 }
 
 #section1-container{
@@ -18,8 +18,6 @@
     grid-column: 1;
     justify-content: center;
     text-align: center;
-    padding-bottom: 50%;
-    max-height: 400px;
     
 }
 
@@ -74,7 +72,21 @@
 .grid-icon {
     padding: 10px;
     text-align: center;
+    font-weight: bold;
+    font-size: large;
 }
 
+.footer-link{
+    font-weight: bolder;
+    font-size:xx-large;
+    text-decoration: none;
 
+}
 
+.company-logo{
+    width: 160px;
+}
+
+#footer_container{
+    min-height: 500px;
+}

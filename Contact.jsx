@@ -23,12 +23,12 @@ function Contact() {
       <div id='contact-form'>
           <div id='circle-background'>
             <div id='contact-form-content'>
-              <input placeholder='First Name'></input>
-              <input placeholder='Last Name'></input>
-              <input placeholder='Phone number'></input>
-              <input placeholder='Email'></input>
-              <input id='user-message' placeholder='Message'></input>
-              <button>Submit</button>
+              <input className='input-fields' placeholder='First Name'></input>
+              <input className='input-fields' placeholder='Last Name'></input>
+              <input className='input-fields' placeholder='Phone number'></input>
+              <input className='input-fields' placeholder='Email'></input>
+              <input className='input-fields' id='user-message' placeholder='Message'></input>
+              <button id='submit-button'>Submit</button>
             </div>
           </div>
         </div>

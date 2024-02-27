@@ -8,6 +8,7 @@ import Contact from './Contact'
 import CurrentProjects from './CurrentProjects'
 import DonationPage from './DonationPage'
 import Home from './Home'
+import ProjectInformation from './projectInformation';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/currentprojects' element={<CurrentProjects />} />
         <Route path='/donation' element={<DonationPage />} />
+        <Route path='/projectInformation/:id' element={<ProjectInformation />} />
       </Routes>
     </div>
   );

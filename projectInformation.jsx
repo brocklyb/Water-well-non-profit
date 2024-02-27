@@ -3,6 +3,10 @@ import { projectData } from './data/Data';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import excavatorImg from './images/workers.webp'
+
+import Footer from './Footer'
+
 function ProjectInformation() {
     useEffect(() => {
         displayProject()
@@ -23,12 +27,26 @@ function ProjectInformation() {
 
   return (
    <div>
-    <h1>Hello</h1>
-    <h2>{param.id}</h2>
-    <h3>{project.projectName}</h3>
+      
 
+    <div id='main-flex-container'>
+      <div>
+        <img id='excavator' src={excavatorImg}></img>
+      </div>
 
+      <div id='projectDetails'>
+        <h1>{project.projectName}</h1>
+        <h3>{project.location}</h3>
+        <p>{project.description}</p>
+        <p>${project.moneyGoal}</p>
+        <p>${project.moneyCurrent}</p>
+      </div>
+    </div>
     
+      <div id='google'>
+        <h1>GOOGLE MAP HERE</h1>
+      </div>
+    <Footer/>
    </div>
   );
 }

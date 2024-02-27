@@ -19,18 +19,19 @@ function Footer() {
       <div id='footer_container_grid'>
 
         <div id='section1-container'>
-          <img src={Logo} id='logo' alt="Failed to load" />
-            <h1>The Water Project</h1>
+          
+            <h1><u>The Water Project</u></h1>
             <div id='socail-media-icons-container'>
                   <img className='social-icon' src={Instagram}></img>
                   <img className='social-icon' src={Facebook}></img>
                   <img className='social-icon' src={Venmo}></img>
             </div>
+            <a href='/home'><img className='company-logo' src={Logo} id='logo' alt="Failed to load" /></a>
         </div>
 
         <div id='section2-container'>
           <div id='contact-container'>
-            <h3><strong>Contact</strong></h3>
+            <h3><strong><u>Contact</u></strong></h3>
 
             <div id='contact-grid'>
               <div id='left-column'>
@@ -40,7 +41,7 @@ function Footer() {
               </div>
 
               <div id='right-column'>
-                <p className='grid-icon'><strong>39021 N 69th St, Dankville AZ 42069</strong></p>
+                <p className='grid-icon'><strong>12345 N 96th St, Phoenix AZ 42069</strong></p>
                 <p className='grid-icon'><strong>brockbozzuto@gmail.com</strong></p>
                 <p className='grid-icon'><strong>623-251-8769</strong></p>
               </div>
@@ -51,12 +52,12 @@ function Footer() {
 
         <div id='section3-container'>
           <div id='useful-links-container'>
-              <h3> <strong>Useful Links</strong> </h3>
-              <p> <Link to="/home">Home</Link> </p>
-              <p> <Link to="/about">About Us</Link> </p>
-              <p> <Link to="/contact">Contact</Link> </p>
-              <p> <Link to="/currentprojects">Current Projects</Link> </p>
-              <p> <Link to="/donation">Donate Now</Link> </p>
+              <h3> <strong><u>Useful Links</u></strong> </h3>
+              <p className='footer-link'> <Link to="/home">Home</Link> </p>
+              <p className='footer-link'> <Link to="/about">About Us</Link> </p>
+              <p className='footer-link'> <Link to="/contact">Contact</Link> </p>
+              <p className='footer-link'> <Link to="/currentprojects">Current Projects</Link> </p>
+              <p className='footer-link'> <Link to="/donation">Donate Now</Link> </p>
           </div>
         </div>
 

@@ -1,0 +1,33 @@
+#excavator{
+    display: flex;
+    width: 100%;
+}
+
+#main-flex-container{
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+#excavator{
+
+}
+
+#projectDetails{
+    width: auto;
+    flex-direction: column;
+    margin-left: 4%;
+    text-align: center;
+}
+
+#google{
+    background-color: rgb(198, 198, 198);
+    height: 200px;
+    width: 100%;
+    padding: 100px 100px;
+    padding-bottom: 350px;
+    text-align: center;
+}

@@ -9,12 +9,16 @@ import Logo from './images/icons/logo.png'
 import Section3Img from './images/kids-well2.jpg'
 import SmilingChild from './images/smiling-kid.jpg'
 import BucketKids from './images/project-photo.jpg'
+import WellSchematic from './images/well-schematic.png'
 
 import {projectData} from './data/Data'
 import checkMark from './images/icons/check-mark.svg'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 function Home() {
 
@@ -65,7 +69,6 @@ function Home() {
             <p id='section2-item2'><strong>Clean water is a whole family concern.</strong>
               <br></br><br></br>Finding water is a daily challenge for young girls, moms and sons.
               With a charitable donation today, you can lift this burden.<br></br><br></br>
-
               Providing a reliable and safe water source will unlock potential by
               returning time for study, work, and imagination. </p>
           </div>
@@ -74,7 +77,6 @@ function Home() {
             <p id='section2-item4'><strong>A gift of lasting opportunity.</strong>
               <br></br><br></br>You'll come alongside our local teams who'll build water wells, small dams,
               spring protections and other water sources.<br></br><br></br>
-
               Then, together, we'll make sure they keep working for 
               years to come, creating opportunity all along the way. </p>
           </div>
@@ -87,7 +89,9 @@ function Home() {
       </div>
 
       <div id='cur-prjs'>
-        <h1>Current Projects</h1>
+        <h1><u>Current Projects</u></h1>
+        <br></br>
+        <button><Link to="/currentprojects" className='white-link'>See All Current Projects</Link></button>
       </div>
 
 
@@ -107,11 +111,10 @@ function Home() {
         
 
                   {item.isCompleted == true ? (
-                    <div id='item4'>
-                      <p id='completion'><strong>Completed</strong></p>
-                      <p id='completion'>{item.completionYear}</p>
+                    <div id='completed'>
                       <img id='checkMark' src={checkMark}></img>
-                      
+                      <p id='completion'><strong>Completed:</strong> {item.completionYear}</p>
+                      <p id='completion'></p>  
                     </div>
                   ) : (
                     <div id='item4'>
@@ -122,11 +125,22 @@ function Home() {
                     
                   )}
 
-                  <a id='item5' href=''>Learn More</a>
+                <Link to={`/projectInformation/${item.projectID}`}>Learn More</Link>
                 </div>
                 </div> 
                   ))}
   
+            </div>
+          </div>
+
+          <div id='diagram-container'>
+            <h1><ul>How our pump works</ul></h1>
+            <div id='well-schematic'>
+              <img id='well-schematic-img' src={WellSchematic} alt='failed to load schematic'></img>
+              
+              <div id='pump-description'>
+                <p>A hand pump well operates through a series of mechanical components that harness human effort to draw water from underground sources. When the pump handle is manually operated, it activates a piston mechanism inside the pump cylinder. As the handle is raised, the piston creates a vacuum, lifting water from the well through a check valve. Upon lowering the handle, another check valve prevents water from flowing back down, enabling the water to be expelled at the surface for consumption or storage.</p>
+              </div>
             </div>
           </div>
 
@@ -136,10 +150,10 @@ function Home() {
 
           <div id='newsletter'>
             <h3>Sign up for our newsletter</h3>
-            <input placeholder='Email'></input>
-            <input placeholder='First Name'></input>
-            <input placeholder='Last Name'></input>
-            <button>Subscribe</button>
+            <input className='email-signup' placeholder='Email'></input>
+            <input className='email-signup' placeholder='First Name'></input>
+            <input className='email-signup' placeholder='Last Name'></input>
+            <button className='subscribe-home'>Subscribe</button>
           </div>
 
     <Footer />

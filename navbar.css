@@ -1,21 +1,49 @@
-.navbar {
-    display: flex;
-
-    align-items: start;
-    padding: 10px;
-    background-color: #333;
-    
+.navbar{
+    background-color: rgb(106, 106, 106);
 }
 
-
-
-.nav-links{
+#nav-content {
     display: flex;
-    margin-left: auto;
+    font-size: x-large;
+    font-weight: bold;
 }
-
-.nav-link{
+  
+#nav-links {
+    list-style-type: none;
+    display: flex; 
+    align-items: center;
+}
+  
+#nav-links li {
+    margin-right: 25px; 
+}
+  
+#nav-links a {
     text-decoration: none;
-    color: white;
-    margin-left: 10px; 
+    color: rgb(5, 48, 220); 
 }
+  
+#nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+#donate-button {
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 500px;
+
+    position: absolute;
+    right: 40px; /* Adjust the distance from the right edge of the viewport */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+  }
+  
+  #donate-button:hover {
+    background-color: #0056b3; 
+  }

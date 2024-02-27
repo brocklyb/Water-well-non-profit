@@ -14,7 +14,23 @@ import Person1 from './images/icons/huner-icon.png'
 import Person2 from './images/icons/customer-service.svg'
 import Person3 from './images/icons/instagram-icon.png'
 
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+
+import DonateModal from './DonationModal'
+
 function AboutUs() {
+  const [showModal, setShowModal] = useState(false);
+  const [ donationAmount, setDonationAmount ] = useState(0)
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  
   return (
     <div id='main_container'>
 
@@ -99,7 +115,13 @@ function AboutUs() {
         <div id='join_content'>
             <h1>Join our community of world-changers, investing in
               local teams. Make The Water Promise!</h1>
-            <button> Join Now</button>
+            <div id='newsletter-about'>
+              <h3>Sign up for our newsletter</h3>
+              <input className='email-signup' placeholder='Email'></input>
+              <input className='email-signup'placeholder='First Name'></input>
+              <input className='email-signup' placeholder='Last Name'></input>
+              <button className='email-signup' id='subscribe-about'>Subscribe</button>
+          </div >
         </div>
       </div>
 
@@ -134,15 +156,52 @@ function AboutUs() {
                                   functionality check out our Project Directory.
               </p>
             </div>
-            <button>See our Projects</button>
-            <button>Read Stories</button>
+            <button id='all-prj-button'><Link to="/currentprojects" className='white-link'>See All Current Projects</Link></button>
         </div>
       </div>
 
       <div id='join_container'>
         <div id='join_content'>
             <h1>Help fund a water project and see the results for yourself.</h1>
-            <button>Donate Now</button>
+            <div>
+            <button id='donate-button-about' onClick={openModal}>Donate Now</button>
+              <DonateModal showModal={showModal} closeModal={closeModal}>
+                <h1>Donation</h1>
+                <div className="popup">
+                  <div className="button-row">
+                    <button>$5</button>
+                    <button>$10</button>
+                    <button>$20</button>
+                  </div>
+                  <div className="button-row">
+                    <button>$50</button>
+                    <button>$100</button>
+                    <button>$200</button>
+                  </div>
+                  <div className="button-row">
+                    <button>$500</button>
+                    <button>$1,000</button>
+                    <button>Custom</button>
+                  </div>
+                  
+                  <div className="cust-info-row">
+                    <input type="text" placeholder="First Name" />
+                    <input type="text" placeholder="Last Name" />
+                    <input type="text" placeholder="Address" />
+                  </div>
+
+                  <div className="card-info">
+                    <label>Card Number:</label>
+                    <input type="text" placeholder="1234 5678 9012 3456" />
+                    <label>Expiry Date:</label>
+                    <input type="text" placeholder="MM/YY" />
+                    <label>CVC:</label>
+                    <input type="text" placeholder="123" />
+                  </div>
+                </div>
+                <button onClick={closeModal}>Close</button>
+              </DonateModal>
+            </div>
         </div>
       </div>
 

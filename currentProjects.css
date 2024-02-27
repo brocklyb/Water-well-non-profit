@@ -27,6 +27,7 @@ form label{
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 #checkMark{
@@ -59,4 +60,19 @@ form label{
 
 #sss{
   margin-right: 20px;
+}
+
+#projectContainer, #projectGrid{
+  justify-content: center;
+  align-content: center;
+
+  
+  max-height: 35%;
+  
+}
+
+#learnMore{
+  display: flex;
+  flex-direction: column;
+  
 }
