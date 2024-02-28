@@ -90,3 +90,48 @@
 #footer_container{
     min-height: 500px;
 }
+
+.footer-link-donate{
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.footer-link-donate:hover {
+    background-color: #0056b3; 
+  }
+
+.donation-popup-button{
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+    min-height: 40px;
+  }
+
+.donation-popup-button:hover {
+    background-color: #0056b3; 
+}
+
+.submit-donation{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-donation:hover {
+    background-color: #0056b3; 
+}

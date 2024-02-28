@@ -35,7 +35,8 @@ function Contact() {
 
     
 
-<Footer />
+        <Footer />
+
     </div>
 
     

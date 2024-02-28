@@ -12,8 +12,22 @@ import Address from './images/icons/mailbox-icon.png'
 import Mailbox from './images/icons/mailbox-icon.png'
 import Telephone from './images/icons/telephone-icon.png'
 
+import { useState } from 'react'
+import DonateModal from './DonationModal'
 
 function Footer() {
+  const [showModal, setShowModal] = useState(false);
+
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+
   return (
     <div id='footer_container'>
       <div id='footer_container_grid'>
@@ -57,7 +71,45 @@ function Footer() {
               <p className='footer-link'> <Link to="/about">About Us</Link> </p>
               <p className='footer-link'> <Link to="/contact">Contact</Link> </p>
               <p className='footer-link'> <Link to="/currentprojects">Current Projects</Link> </p>
-              <p className='footer-link'> <Link to="/donation">Donate Now</Link> </p>
+              <div>
+              <button className='footer-link-donate'  onClick={openModal}>Donate Now</button>
+
+              <DonateModal showModal={showModal} closeModal={closeModal}>
+                <h1>Donation</h1>
+                <div className="popup-footer">
+                  <div className="button-row">
+                    <button className='donation-popup-button'>$5</button>
+                    <button className='donation-popup-button'>$10</button>
+                    <button className='donation-popup-button'>$20</button>
+                  </div>
+                  <div className="button-row">
+                    <button className='donation-popup-button'>$50</button>
+                    <button className='donation-popup-button'>$100</button>
+                    <button className='donation-popup-button'>$200</button>
+                  </div>
+                  <div className="button-row">
+                    <button className='donation-popup-button'>$500</button>
+                    <button className='donation-popup-button'>$1,000</button>
+                    <button className='donation-popup-button'>Custom</button>
+                  </div>
+                  
+                  <div className="cust-info-row">
+                    <input type="text" placeholder="First Name" />
+                    <input type="text" placeholder="Last Name" />
+                    <input type="text" placeholder="Address" />
+                  </div>
+
+                  <div className="card-info">
+                    <br></br>
+                    <input type="text" placeholder="1234 5678 9012 3456" />
+                    <input type="text" placeholder="MM/YY" />
+                    <input type="text" placeholder="123" />
+                  </div>
+                </div>
+                <button className='submit-donation-about'>Submit</button>
+                <button onClick={closeModal}>Close</button>
+              </DonateModal>
+              </div>
           </div>
         </div>
 

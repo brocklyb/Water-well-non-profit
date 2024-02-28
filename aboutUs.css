@@ -133,6 +133,14 @@
     grid-column: 3;
 }
 
+#person3-img{
+    margin-left: 25px;
+}
+
+#person1-img{
+    margin-left: 20px;
+}
+
 #all-prj-button{
     background-color:  rgb(85, 135, 210);
     font-weight: bold;
@@ -185,4 +193,35 @@
 #completed{
 
     padding-top: 37px;
+}
+
+
+.donation-button-aboutus{
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+    min-height: 40px;
+  }
+
+.donation-button-aboutus:hover {
+    background-color: #0056b3; 
+}
+
+.submit-donation-about{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-donation-about:hover {
+    background-color: #0056b3; 
 }

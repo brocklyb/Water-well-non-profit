@@ -169,19 +169,19 @@ function AboutUs() {
                 <h1>Donation</h1>
                 <div className="popup">
                   <div className="button-row">
-                    <button>$5</button>
-                    <button>$10</button>
-                    <button>$20</button>
+                    <button className='donation-button-aboutus'>$5</button>
+                    <button className='donation-button-aboutus'>$10</button>
+                    <button className='donation-button-aboutus'>$20</button>
                   </div>
                   <div className="button-row">
-                    <button>$50</button>
-                    <button>$100</button>
-                    <button>$200</button>
+                    <button className='donation-button-aboutus'>$50</button>
+                    <button className='donation-button-aboutus'>$100</button>
+                    <button className='donation-button-aboutus'>$200</button>
                   </div>
                   <div className="button-row">
-                    <button>$500</button>
-                    <button>$1,000</button>
-                    <button>Custom</button>
+                    <button className='donation-button-aboutus'>$500</button>
+                    <button className='donation-button-aboutus'>$1,000</button>
+                    <button className='donation-button-aboutus'>Custom</button>
                   </div>
                   
                   <div className="cust-info-row">
@@ -191,11 +191,8 @@ function AboutUs() {
                   </div>
 
                   <div className="card-info">
-                    <label>Card Number:</label>
                     <input type="text" placeholder="1234 5678 9012 3456" />
-                    <label>Expiry Date:</label>
                     <input type="text" placeholder="MM/YY" />
-                    <label>CVC:</label>
                     <input type="text" placeholder="123" />
                   </div>
                 </div>
@@ -215,24 +212,24 @@ function AboutUs() {
 
           <div id='meetus_grid'>
             <div id='person1'>
-              <img src={Person1}></img>
+              <img id='person1-img' src={Person1}></img>
               <h2>Kati B</h2>
               <h3>Fundraise</h3>
-              <p>About Me</p>
+     
             </div>
 
             <div id='person2'>
               <img src={Person2}></img>
               <h2>Matthew</h2>
-              <h3>Meme Expert</h3>
-              <p>About Me</p>
+              <h3>Well Expert</h3>
+   
             </div>
 
             <div id='person3'>
-              <img src={Person3}></img>
+              <img id='person3-img' src={Person3}></img>
               <h2>Mark</h2>
-              <h3>Reddit user</h3>
-              <p>About Me</p>
+              <h3>Accountant</h3>
+
             </div>
 
           </div>
