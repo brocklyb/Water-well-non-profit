@@ -191,11 +191,13 @@ function AboutUs() {
                   </div>
 
                   <div className="card-info">
+                    <br></br>
                     <input type="text" placeholder="1234 5678 9012 3456" />
                     <input type="text" placeholder="MM/YY" />
                     <input type="text" placeholder="123" />
                   </div>
                 </div>
+                <button className='submit-donation-about'>Submit</button>
                 <button onClick={closeModal}>Close</button>
               </DonateModal>
             </div>

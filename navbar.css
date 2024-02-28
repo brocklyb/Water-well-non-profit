@@ -47,3 +47,34 @@
   #donate-button:hover {
     background-color: #0056b3; 
   }
+
+
+.donation-button-navbar{
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+    min-height: 40px;
+  }
+
+.donation-button-navbar:hover {
+    background-color: #0056b3; 
+}
+
+.submit-donation-navbar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: #d44e25; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-donation-navbar:hover {
+    background-color: #0056b3; 
+}
